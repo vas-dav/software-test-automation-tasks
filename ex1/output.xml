@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.2 on darwin)" generated="20230319 19:54:26.599" rpa="false" schemaversion="3">
+<suite id="s1" name="Libraries And Keywords" source="/Users/dave/Documents/coding/Python/software_test_automation/ex1/libraries_and_keywords.robot">
+<test id="s1-t1" name="Remove An Existing File" line="16">
+<kw name="Remove Existing Address File">
+<arg>Harri Sillanpää.txt</arg>
+<kw name="File Exists" library="file">
+<var>${fileExists}</var>
+<arg>${filename}</arg>
+<msg timestamp="20230319 19:54:26.972" level="INFO">${fileExists} = True</msg>
+<status status="PASS" starttime="20230319 19:54:26.972" endtime="20230319 19:54:26.972"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${fileExists} is True</arg>
+<arg>Log And Delete File</arg>
+<arg>${filename}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Log And Delete File">
+<arg>${filename}</arg>
+<kw name="Get File" library="OperatingSystem">
+<var>${data}</var>
+<arg>${file}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20230319 19:54:26.973" level="INFO" html="true">Getting file '&lt;a href="file:///Users/dave/Documents/coding/Python/software_test_automation/ex1/Harri Sillanpää.txt"&gt;/Users/dave/Documents/coding/Python/software_test_automation/ex1/Harri Sillanpää.txt&lt;/a&gt;'.</msg>
+<msg timestamp="20230319 19:54:26.975" level="INFO">${data} = Harri Sillanpää
+Haagan pappilanpolku 369
+63494 Perho
+</msg>
+<status status="PASS" starttime="20230319 19:54:26.973" endtime="20230319 19:54:26.975"/>
+</kw>
+<kw name="Get Line From File" library="file">
+<var>${line}</var>
+<arg>${file}</arg>
+<msg timestamp="20230319 19:54:26.976" level="INFO">${line} = Harri Sillanpää</msg>
+<status status="PASS" starttime="20230319 19:54:26.975" endtime="20230319 19:54:26.976"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${line}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230319 19:54:26.976" endtime="20230319 19:54:26.976"/>
+</kw>
+<kw name="Remove File" library="OperatingSystem">
+<arg>${file}</arg>
+<doc>Removes a file with the given path.</doc>
+<msg timestamp="20230319 19:54:26.977" level="INFO" html="true">Removed file '&lt;a href="file:///Users/dave/Documents/coding/Python/software_test_automation/ex1/Harri Sillanpää.txt"&gt;/Users/dave/Documents/coding/Python/software_test_automation/ex1/Harri Sillanpää.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20230319 19:54:26.976" endtime="20230319 19:54:26.977"/>
+</kw>
+<status status="PASS" starttime="20230319 19:54:26.973" endtime="20230319 19:54:26.977"/>
+</kw>
+<status status="PASS" starttime="20230319 19:54:26.973" endtime="20230319 19:54:26.977"/>
+</kw>
+<status status="PASS" starttime="20230319 19:54:26.972" endtime="20230319 19:54:26.977"/>
+</kw>
+<status status="PASS" starttime="20230319 19:54:26.971" endtime="20230319 19:54:26.977"/>
+</test>
+<test id="s1-t2" name="Create A New Address File" line="19">
+<kw name="Get Random Names">
+<var>@{names}</var>
+<arg>5</arg>
+<kw name="Create List" library="BuiltIn">
+<var>@{names}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230319 19:54:26.978" level="INFO">@{names} = [ ]</msg>
+<status status="PASS" starttime="20230319 19:54:26.978" endtime="20230319 19:54:26.978"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>0</value>
+<value>${amount}</value>
+<iter>
+<var name="${i}">0</var>
+<kw name="Name" library="FakerLibrary">
+<var>${tmp}</var>
+<doc>:example 'John Doe'</doc>
+<msg timestamp="20230319 19:54:26.979" level="INFO">${tmp} = Matilda Kinnunen</msg>
+<status status="PASS" starttime="20230319 19:54:26.979" endtime="20230319 19:54:26.979"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${names}</arg>
+<arg>${tmp}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230319 19:54:26.979" endtime="20230319 19:54:26.979"/>
+</kw>
+<status status="PASS" starttime="20230319 19:54:26.979" endtime="20230319 19:54:26.979"/>
+</iter>
+<iter>
+<var name="${i}">1</var>
+<kw name="Name" library="FakerLibrary">
+<var>${tmp}</var>
+<doc>:example 'John Doe'</doc>
+<msg timestamp="20230319 19:54:26.980" level="INFO">${tmp} = Mirja Mäkinen</msg>
+<status status="PASS" starttime="20230319 19:54:26.980" endtime="20230319 19:54:26.980"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${names}</arg>
+<arg>${tmp}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230319 19:54:26.980" endtime="20230319 19:54:26.980"/>
+</kw>
+<status status="PASS" starttime="20230319 19:54:26.980" endtime="20230319 19:54:26.980"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Name" library="FakerLibrary">
+<var>${tmp}</var>
+<doc>:example 'John Doe'</doc>
+<msg timestamp="20230319 19:54:26.981" level="INFO">${tmp} = Jenna Heikkinen</msg>
+<status status="PASS" starttime="20230319 19:54:26.980" endtime="20230319 19:54:26.981"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${names}</arg>
+<arg>${tmp}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230319 19:54:26.981" endtime="20230319 19:54:26.981"/>
+</kw>
+<status status="PASS" starttime="20230319 19:54:26.980" endtime="20230319 19:54:26.981"/>
+</iter>
+<iter>
+<var name="${i}">3</var>
+<kw name="Name" library="FakerLibrary">
+<var>${tmp}</var>
+<doc>:example 'John Doe'</doc>
+<msg timestamp="20230319 19:54:26.981" level="INFO">${tmp} = Raimo Karlsson</msg>
+<status status="PASS" starttime="20230319 19:54:26.981" endtime="20230319 19:54:26.981"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${names}</arg>
+<arg>${tmp}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230319 19:54:26.981" endtime="20230319 19:54:26.982"/>
+</kw>
+<status status="PASS" starttime="20230319 19:54:26.981" endtime="20230319 19:54:26.982"/>
+</iter>
+<iter>
+<var name="${i}">4</var>
+<kw name="Name" library="FakerLibrary">
+<var>${tmp}</var>
+<doc>:example 'John Doe'</doc>
+<msg timestamp="20230319 19:54:26.982" level="INFO">${tmp} = Emilia Eriksson-Rauhala</msg>
+<status status="PASS" starttime="20230319 19:54:26.982" endtime="20230319 19:54:26.982"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${names}</arg>
+<arg>${tmp}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230319 19:54:26.982" endtime="20230319 19:54:26.982"/>
+</kw>
+<status status="PASS" starttime="20230319 19:54:26.982" endtime="20230319 19:54:26.982"/>
+</iter>
+<status status="PASS" starttime="20230319 19:54:26.978" endtime="20230319 19:54:26.982"/>
+</for>
+<msg timestamp="20230319 19:54:26.983" level="INFO">@{names} = [ Matilda Kinnunen | Mirja Mäkinen | Jenna Heikkinen | Raimo Karlsson | Emilia Eriksson-Rauhala ]</msg>
+<status status="PASS" starttime="20230319 19:54:26.978" endtime="20230319 19:54:26.983"/>
+</kw>
+<kw name="Get Selection From User" library="Dialogs">
+<var>${name}</var>
+<arg>Choose a name.</arg>
+<arg>@{names}</arg>
+<doc>Pauses execution and asks user to select a value.</doc>
+<msg timestamp="20230319 19:54:32.052" level="INFO">${name} = Emilia Eriksson-Rauhala</msg>
+<status status="PASS" starttime="20230319 19:54:26.983" endtime="20230319 19:54:32.053"/>
+</kw>
+<kw name="Address" library="FakerLibrary">
+<var>${address}</var>
+<doc>:example: '791 Crist Parks, Sashabury, IL 86039-9874'</doc>
+<msg timestamp="20230319 19:54:32.053" level="INFO">${address} = Damaskuksenkatu 175
+96224 Vaala</msg>
+<status status="PASS" starttime="20230319 19:54:32.053" endtime="20230319 19:54:32.053"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${final_string}</var>
+<arg>${name}${\n}${address}${\n}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230319 19:54:32.054" level="INFO">${final_string} = Emilia Eriksson-Rauhala
+Damaskuksenkatu 175
+96224 Vaala
+</msg>
+<status status="PASS" starttime="20230319 19:54:32.053" endtime="20230319 19:54:32.054"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${file}</var>
+<arg>${name}.txt</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230319 19:54:32.054" level="INFO">${file} = Emilia Eriksson-Rauhala.txt</msg>
+<status status="PASS" starttime="20230319 19:54:32.054" endtime="20230319 19:54:32.054"/>
+</kw>
+<kw name="Create File" library="OperatingSystem">
+<arg>${file}</arg>
+<arg>${final_string}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<msg timestamp="20230319 19:54:32.055" level="INFO" html="true">Created file '&lt;a href="file:///Users/dave/Documents/coding/Python/software_test_automation/ex1/Emilia Eriksson-Rauhala.txt"&gt;/Users/dave/Documents/coding/Python/software_test_automation/ex1/Emilia Eriksson-Rauhala.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20230319 19:54:32.054" endtime="20230319 19:54:32.055"/>
+</kw>
+<kw name="File Should Exist" library="OperatingSystem">
+<arg>${file}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<msg timestamp="20230319 19:54:32.055" level="INFO" html="true">File '&lt;a href="file:///Users/dave/Documents/coding/Python/software_test_automation/ex1/Emilia Eriksson-Rauhala.txt"&gt;/Users/dave/Documents/coding/Python/software_test_automation/ex1/Emilia Eriksson-Rauhala.txt&lt;/a&gt;' exists.</msg>
+<status status="PASS" starttime="20230319 19:54:32.055" endtime="20230319 19:54:32.055"/>
+</kw>
+<status status="PASS" starttime="20230319 19:54:26.977" endtime="20230319 19:54:32.055"/>
+</test>
+<test id="s1-t3" name="Address File Contains Three Lines" line="27">
+<kw name="Lines In File" library="file">
+<var>${lines}</var>
+<arg>Leevi Koskinen.txt</arg>
+<msg timestamp="20230319 19:54:32.056" level="INFO">${lines} = 3</msg>
+<status status="PASS" starttime="20230319 19:54:32.056" endtime="20230319 19:54:32.056"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${lines}</arg>
+<arg>${3}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230319 19:54:32.056" endtime="20230319 19:54:32.057"/>
+</kw>
+<status status="PASS" starttime="20230319 19:54:32.056" endtime="20230319 19:54:32.057"/>
+</test>
+<status status="PASS" starttime="20230319 19:54:26.601" endtime="20230319 19:54:32.057"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="0" skip="0" id="s1" name="Libraries And Keywords">Libraries And Keywords</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
