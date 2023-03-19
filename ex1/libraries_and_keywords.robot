@@ -7,11 +7,6 @@ Library                             Dialogs
 Library                             FakerLibrary    locale=fi_FI
 Library                             file.py 
 
-
-
-
-
-
 *** Test Cases ***
 Remove An Existing File
     Remove Existing Address File    Harri Sillanpää.txt
