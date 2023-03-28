@@ -8,7 +8,6 @@ class MorseDecoderLibrary(object):
         self._sender = serial.Serial(sender_port, 115200, timeout = 1)
         self._decoder = serial.Serial(decoder_port, 115200, timeout = 20)
 
-
     def set_speed(self, speed):
         self._sender.write(bytes('wpm ' + speed + '\n', 'utf-8'))
             
@@ -19,6 +18,7 @@ class MorseDecoderLibrary(object):
 
 
     def speed_should_be(self, expected_speed):
+        self._decoder.write(bytes('WPM' + '\n', 'utf-8'))
         text = self._decoder.readline().strip().decode('utf-8')
         speed = int(text.split()[2])
         if speed != int(expected_speed):
@@ -30,4 +30,25 @@ class MorseDecoderLibrary(object):
         if text != expected_text:
             raise AssertionError('Expected: ' + expected_text + ' got: ' + text)
         
-        
+
+    def set_auto_wpm_status(self, status):
+        self._decoder.write(bytes('WPM ' + str(status) + '\n', 'utf-8'))
+
+
+    def set_immediate_status(self, status):
+        self._decoder.write(bytes('IMM ' + str(status) + '\n', 'utf-8'))
+
+
+    def auto_wpm_status_should_be(self, expected_status):
+        expected_str = '[ Print WPM is ' + expected_status + ' ]'
+        text = self._decoder.readline().strip().decode('utf-8')
+        if text != expected_str:
+            raise AssertionError('Expected: ' + expected_str + ' got: ' + text)
+    
+
+    def immediate_status_should_be(self, expected_status):
+        expected_str = '[ Immediate output is ' + expected_status + ' ]'
+        text = self._decoder.readline().strip().decode('utf-8')
+        if text != expected_str:
+            raise AssertionError('Expected: ' + expected_str + ' got: ' + text)
+       

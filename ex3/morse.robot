@@ -14,4 +14,4 @@ ${lorem}=    Lorem Ipsum is simply dummy text of the printing and typesetting in
 *** Test Cases ***                  TEXT            SPEED        EXPECTED SPEED
 Send Morse basic                    hello world     50           50
 Send Morse special char             hello_people    50           50
-Send Morse longer text              ${lorem}        450          500
+Send Morse longer text              ${lorem}        500          500
