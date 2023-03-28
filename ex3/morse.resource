@@ -1,6 +1,10 @@
 *** Settings ***
-Library           MorseDecoderLibrary.py
+Library           MorseDecoderLibrary.py    ${sender_port}    ${decoder_port}
 Library           String
+
+*** Variables ***
+${sender_port}=    /dev/tty.usbmodemBSAWBQDQ2
+${decoder_port}=    /dev/tty.usbmodem203
 
 *** Keywords ***
 Send Morse

@@ -6,7 +6,6 @@ Resource    morse.resource
 Test Template     Send Morse
 
 *** Variables ***
-
 ${lorem}=    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 
 *** Test Cases ***                  TEXT            SPEED        EXPECTED SPEED

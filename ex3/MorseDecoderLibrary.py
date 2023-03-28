@@ -4,9 +4,9 @@ class MorseDecoderLibrary(object):
     ''' Library for interacting with morse sender and decoder
     '''
     
-    def __init__(self):
-        self._sender = serial.Serial('/dev/tty.usbmodemBSAWBQDQ2', 115200, timeout = 1)
-        self._decoder = serial.Serial('/dev/tty.usbmodem203', 115200, timeout = 20)
+    def __init__(self, sender_port, decoder_port):
+        self._sender = serial.Serial(sender_port, 115200, timeout = 1)
+        self._decoder = serial.Serial(decoder_port, 115200, timeout = 20)
 
 
     def set_speed(self, speed):
