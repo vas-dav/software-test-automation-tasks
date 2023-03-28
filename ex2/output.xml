@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.2 on darwin)" generated="20230328 15:06:46.326" rpa="false" schemaversion="3">
+<suite id="s1" name="Morse" source="/Users/dave/Documents/coding/Python/software_test_automation/ex2/morse.robot">
+<test id="s1-t1" name="Send Morse basic" line="13">
+<kw name="Send Morse" library="morse">
+<arg>hello world</arg>
+<arg>50</arg>
+<kw name="Set Speed" library="MorseDecoderLibrary">
+<arg>${speed}</arg>
+<status status="PASS" starttime="20230328 15:06:46.368" endtime="20230328 15:06:46.372"/>
+</kw>
+<kw name="Send Text" library="MorseDecoderLibrary">
+<arg>${text_to_send}</arg>
+<status status="PASS" starttime="20230328 15:06:46.372" endtime="20230328 15:06:46.373"/>
+</kw>
+<kw name="Replace String Using Regexp" library="String">
+<var>${text_to_expect}</var>
+<arg>${text_to_send}</arg>
+<arg>[^a-zA-Z0-9 ]</arg>
+<arg>x</arg>
+<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230328 15:06:46.373" level="INFO">${text_to_expect} = hello world</msg>
+<status status="PASS" starttime="20230328 15:06:46.373" endtime="20230328 15:06:46.373"/>
+</kw>
+<kw name="Convert To Upper Case" library="String">
+<var>${text_to_expect}</var>
+<arg>${text_to_expect}</arg>
+<doc>Converts string to upper case.</doc>
+<msg timestamp="20230328 15:06:46.374" level="INFO">${text_to_expect} = HELLO WORLD</msg>
+<status status="PASS" starttime="20230328 15:06:46.373" endtime="20230328 15:06:46.374"/>
+</kw>
+<kw name="Speed Should Be" library="MorseDecoderLibrary">
+<arg>${speed}</arg>
+<status status="PASS" starttime="20230328 15:06:46.374" endtime="20230328 15:06:46.660"/>
+</kw>
+<kw name="Text Should Be" library="MorseDecoderLibrary">
+<arg>${text_to_expect}</arg>
+<status status="PASS" starttime="20230328 15:06:46.660" endtime="20230328 15:06:48.761"/>
+</kw>
+<status status="PASS" starttime="20230328 15:06:46.368" endtime="20230328 15:06:48.761"/>
+</kw>
+<status status="PASS" starttime="20230328 15:06:46.367" endtime="20230328 15:06:48.761"/>
+</test>
+<test id="s1-t2" name="Send Morse special char" line="14">
+<kw name="Send Morse" library="morse">
+<arg>hello_people</arg>
+<arg>50</arg>
+<kw name="Set Speed" library="MorseDecoderLibrary">
+<arg>${speed}</arg>
+<status status="PASS" starttime="20230328 15:06:48.764" endtime="20230328 15:06:48.768"/>
+</kw>
+<kw name="Send Text" library="MorseDecoderLibrary">
+<arg>${text_to_send}</arg>
+<status status="PASS" starttime="20230328 15:06:48.768" endtime="20230328 15:06:48.768"/>
+</kw>
+<kw name="Replace String Using Regexp" library="String">
+<var>${text_to_expect}</var>
+<arg>${text_to_send}</arg>
+<arg>[^a-zA-Z0-9 ]</arg>
+<arg>x</arg>
+<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230328 15:06:48.769" level="INFO">${text_to_expect} = helloxpeople</msg>
+<status status="PASS" starttime="20230328 15:06:48.769" endtime="20230328 15:06:48.769"/>
+</kw>
+<kw name="Convert To Upper Case" library="String">
+<var>${text_to_expect}</var>
+<arg>${text_to_expect}</arg>
+<doc>Converts string to upper case.</doc>
+<msg timestamp="20230328 15:06:48.769" level="INFO">${text_to_expect} = HELLOXPEOPLE</msg>
+<status status="PASS" starttime="20230328 15:06:48.769" endtime="20230328 15:06:48.769"/>
+</kw>
+<kw name="Speed Should Be" library="MorseDecoderLibrary">
+<arg>${speed}</arg>
+<status status="PASS" starttime="20230328 15:06:48.769" endtime="20230328 15:06:49.141"/>
+</kw>
+<kw name="Text Should Be" library="MorseDecoderLibrary">
+<arg>${text_to_expect}</arg>
+<status status="PASS" starttime="20230328 15:06:49.141" endtime="20230328 15:06:51.522"/>
+</kw>
+<status status="PASS" starttime="20230328 15:06:48.764" endtime="20230328 15:06:51.522"/>
+</kw>
+<status status="PASS" starttime="20230328 15:06:48.763" endtime="20230328 15:06:51.522"/>
+</test>
+<test id="s1-t3" name="Send Morse longer text" line="15">
+<kw name="Send Morse" library="morse">
+<arg>${lorem}</arg>
+<arg>500</arg>
+<kw name="Set Speed" library="MorseDecoderLibrary">
+<arg>${speed}</arg>
+<status status="PASS" starttime="20230328 15:06:51.525" endtime="20230328 15:06:51.529"/>
+</kw>
+<kw name="Send Text" library="MorseDecoderLibrary">
+<arg>${text_to_send}</arg>
+<status status="PASS" starttime="20230328 15:06:51.529" endtime="20230328 15:06:51.529"/>
+</kw>
+<kw name="Replace String Using Regexp" library="String">
+<var>${text_to_expect}</var>
+<arg>${text_to_send}</arg>
+<arg>[^a-zA-Z0-9 ]</arg>
+<arg>x</arg>
+<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230328 15:06:51.530" level="INFO">${text_to_expect} = Lorem Ipsum is simply dummy text of the printing and typesetting industryx</msg>
+<status status="PASS" starttime="20230328 15:06:51.529" endtime="20230328 15:06:51.530"/>
+</kw>
+<kw name="Convert To Upper Case" library="String">
+<var>${text_to_expect}</var>
+<arg>${text_to_expect}</arg>
+<doc>Converts string to upper case.</doc>
+<msg timestamp="20230328 15:06:51.530" level="INFO">${text_to_expect} = LOREM IPSUM IS SIMPLY DUMMY TEXT OF THE PRINTING AND TYPESETTING INDUSTRYX</msg>
+<status status="PASS" starttime="20230328 15:06:51.530" endtime="20230328 15:06:51.530"/>
+</kw>
+<kw name="Speed Should Be" library="MorseDecoderLibrary">
+<arg>${speed}</arg>
+<status status="PASS" starttime="20230328 15:06:51.530" endtime="20230328 15:06:51.661"/>
+</kw>
+<kw name="Text Should Be" library="MorseDecoderLibrary">
+<arg>${text_to_expect}</arg>
+<status status="PASS" starttime="20230328 15:06:51.661" endtime="20230328 15:06:52.904"/>
+</kw>
+<status status="PASS" starttime="20230328 15:06:51.524" endtime="20230328 15:06:52.904"/>
+</kw>
+<status status="PASS" starttime="20230328 15:06:51.524" endtime="20230328 15:06:52.905"/>
+</test>
+<doc>Example of morse transmitter test
+</doc>
+<status status="PASS" starttime="20230328 15:06:46.327" endtime="20230328 15:06:52.907"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="0" skip="0" id="s1" name="Morse">Morse</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
