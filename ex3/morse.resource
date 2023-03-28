@@ -16,3 +16,10 @@ Send Morse
     
     Speed should be    ${expected_speed}
     Text should be     ${text_to_expect}
+
+Morse Setup
+    Log    1
+    
+
+Morse Teardown
+    Log    2

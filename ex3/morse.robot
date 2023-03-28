@@ -2,8 +2,11 @@
 Documentation     Example of morse transmitter test
 ...  
 
-Resource    morse.resource
+Resource          morse.resource
+Test Setup        Morse Setup
+Test Teardown     Morse Teardown
 Test Template     Send Morse
+
 
 *** Variables ***
 ${lorem}=    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
