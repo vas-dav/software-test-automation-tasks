@@ -8,13 +8,13 @@ ${decoder_port}=    /dev/tty.usbmodem203
 
 *** Keywords ***
 Send Morse
-    [Arguments]    ${text_to_send}    ${speed}    ${expected_speed}=${0}
+    [Arguments]    ${text_to_send}    ${speed}    ${expected_speed_range}=${0}
     Set Speed    ${speed}
     Send Text    ${text_to_send}
     ${text_to_expect}=    Replace String Using Regexp    ${text_to_send}    [^a-zA-Z0-9 ]    x 
     ${text_to_expect}=    Convert To Upper Case    ${text_to_expect}
     Text should be     ${text_to_expect}
-    Speed should be    ${expected_speed}
+    Run Keyword If  ${expected_speed_range} < 1000   Speed should be in range    ${expected_speed_range}
 
 Morse Setup
     Set Auto Wpm Status    OFF

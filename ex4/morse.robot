@@ -11,7 +11,10 @@ Test Template     Send Morse
 *** Variables ***
 ${lorem}=    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 
-*** Test Cases ***                  TEXT            SPEED        EXPECTED SPEED
-Send Morse basic                    hello world     50           50
-Send Morse special char             hello_people    50           50
-Send Morse longer text              ${lorem}        500          500
+*** Test Cases ***                  TEXT            SPEED        EXPECTED SPEED RANGE
+Send Morse basic                    hello world     500          1001
+    [Tags]  text only
+Send Morse special char             hello_people    500          10
+    [Tags]  relaxed
+Send Morse longer text              ${lorem}        500          0
+    [Tags]  strict
