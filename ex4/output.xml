@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.2 on darwin)" generated="20230328 16:48:28.370" rpa="false" schemaversion="3">
+<suite id="s1" name="Morse" source="/Users/dave/Documents/coding/Python/software_test_automation/ex3/morse.robot">
+<test id="s1-t1" name="Send Morse basic" line="15">
+<kw name="Morse Setup" library="morse" type="SETUP">
+<kw name="Set Auto Wpm Status" library="MorseDecoderLibrary">
+<arg>OFF</arg>
+<status status="PASS" starttime="20230328 16:48:28.419" endtime="20230328 16:48:28.424"/>
+</kw>
+<kw name="Auto Wpm Status Should Be" library="MorseDecoderLibrary">
+<arg>OFF</arg>
+<status status="PASS" starttime="20230328 16:48:28.424" endtime="20230328 16:48:28.427"/>
+</kw>
+<kw name="Set Immediate Status" library="MorseDecoderLibrary">
+<arg>OFF</arg>
+<status status="PASS" starttime="20230328 16:48:28.427" endtime="20230328 16:48:28.427"/>
+</kw>
+<kw name="Immediate Status Should Be" library="MorseDecoderLibrary">
+<arg>OFF</arg>
+<status status="PASS" starttime="20230328 16:48:28.428" endtime="20230328 16:48:28.431"/>
+</kw>
+<status status="PASS" starttime="20230328 16:48:28.419" endtime="20230328 16:48:28.431"/>
+</kw>
+<kw name="Send Morse" library="morse">
+<arg>hello world</arg>
+<arg>50</arg>
+<arg>50</arg>
+<kw name="Set Speed" library="MorseDecoderLibrary">
+<arg>${speed}</arg>
+<status status="PASS" starttime="20230328 16:48:28.432" endtime="20230328 16:48:28.432"/>
+</kw>
+<kw name="Send Text" library="MorseDecoderLibrary">
+<arg>${text_to_send}</arg>
+<status status="PASS" starttime="20230328 16:48:28.432" endtime="20230328 16:48:28.432"/>
+</kw>
+<kw name="Replace String Using Regexp" library="String">
+<var>${text_to_expect}</var>
+<arg>${text_to_send}</arg>
+<arg>[^a-zA-Z0-9 ]</arg>
+<arg>x</arg>
+<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230328 16:48:28.433" level="INFO">${text_to_expect} = hello world</msg>
+<status status="PASS" starttime="20230328 16:48:28.432" endtime="20230328 16:48:28.433"/>
+</kw>
+<kw name="Convert To Upper Case" library="String">
+<var>${text_to_expect}</var>
+<arg>${text_to_expect}</arg>
+<doc>Converts string to upper case.</doc>
+<msg timestamp="20230328 16:48:28.433" level="INFO">${text_to_expect} = HELLO WORLD</msg>
+<status status="PASS" starttime="20230328 16:48:28.433" endtime="20230328 16:48:28.433"/>
+</kw>
+<kw name="Text Should Be" library="MorseDecoderLibrary">
+<arg>${text_to_expect}</arg>
+<status status="PASS" starttime="20230328 16:48:28.433" endtime="20230328 16:48:30.860"/>
+</kw>
+<kw name="Speed Should Be" library="MorseDecoderLibrary">
+<arg>${expected_speed}</arg>
+<status status="PASS" starttime="20230328 16:48:30.860" endtime="20230328 16:48:30.863"/>
+</kw>
+<status status="PASS" starttime="20230328 16:48:28.431" endtime="20230328 16:48:30.863"/>
+</kw>
+<kw name="Morse Teardown" library="morse" type="TEARDOWN">
+<kw name="Set Auto Wpm Status" library="MorseDecoderLibrary">
+<arg>ON</arg>
+<status status="PASS" starttime="20230328 16:48:30.863" endtime="20230328 16:48:30.863"/>
+</kw>
+<kw name="Auto Wpm Status Should Be" library="MorseDecoderLibrary">
+<arg>ON</arg>
+<status status="PASS" starttime="20230328 16:48:30.863" endtime="20230328 16:48:30.866"/>
+</kw>
+<kw name="Set Immediate Status" library="MorseDecoderLibrary">
+<arg>ON</arg>
+<status status="PASS" starttime="20230328 16:48:30.866" endtime="20230328 16:48:30.866"/>
+</kw>
+<kw name="Immediate Status Should Be" library="MorseDecoderLibrary">
+<arg>ON</arg>
+<status status="PASS" starttime="20230328 16:48:30.866" endtime="20230328 16:48:30.870"/>
+</kw>
+<status status="PASS" starttime="20230328 16:48:30.863" endtime="20230328 16:48:30.870"/>
+</kw>
+<status status="PASS" starttime="20230328 16:48:28.419" endtime="20230328 16:48:30.870"/>
+</test>
+<test id="s1-t2" name="Send Morse special char" line="16">
+<kw name="Morse Setup" library="morse" type="SETUP">
+<kw name="Set Auto Wpm Status" library="MorseDecoderLibrary">
+<arg>OFF</arg>
+<status status="PASS" starttime="20230328 16:48:30.872" endtime="20230328 16:48:30.876"/>
+</kw>
+<kw name="Auto Wpm Status Should Be" library="MorseDecoderLibrary">
+<arg>OFF</arg>
+<status status="PASS" starttime="20230328 16:48:30.876" endtime="20230328 16:48:30.879"/>
+</kw>
+<kw name="Set Immediate Status" library="MorseDecoderLibrary">
+<arg>OFF</arg>
+<status status="PASS" starttime="20230328 16:48:30.879" endtime="20230328 16:48:30.879"/>
+</kw>
+<kw name="Immediate Status Should Be" library="MorseDecoderLibrary">
+<arg>OFF</arg>
+<status status="PASS" starttime="20230328 16:48:30.879" endtime="20230328 16:48:30.883"/>
+</kw>
+<status status="PASS" starttime="20230328 16:48:30.872" endtime="20230328 16:48:30.883"/>
+</kw>
+<kw name="Send Morse" library="morse">
+<arg>hello_people</arg>
+<arg>50</arg>
+<arg>50</arg>
+<kw name="Set Speed" library="MorseDecoderLibrary">
+<arg>${speed}</arg>
+<status status="PASS" starttime="20230328 16:48:30.883" endtime="20230328 16:48:30.883"/>
+</kw>
+<kw name="Send Text" library="MorseDecoderLibrary">
+<arg>${text_to_send}</arg>
+<status status="PASS" starttime="20230328 16:48:30.883" endtime="20230328 16:48:30.884"/>
+</kw>
+<kw name="Replace String Using Regexp" library="String">
+<var>${text_to_expect}</var>
+<arg>${text_to_send}</arg>
+<arg>[^a-zA-Z0-9 ]</arg>
+<arg>x</arg>
+<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230328 16:48:30.884" level="INFO">${text_to_expect} = helloxpeople</msg>
+<status status="PASS" starttime="20230328 16:48:30.884" endtime="20230328 16:48:30.884"/>
+</kw>
+<kw name="Convert To Upper Case" library="String">
+<var>${text_to_expect}</var>
+<arg>${text_to_expect}</arg>
+<doc>Converts string to upper case.</doc>
+<msg timestamp="20230328 16:48:30.884" level="INFO">${text_to_expect} = HELLOXPEOPLE</msg>
+<status status="PASS" starttime="20230328 16:48:30.884" endtime="20230328 16:48:30.884"/>
+</kw>
+<kw name="Text Should Be" library="MorseDecoderLibrary">
+<arg>${text_to_expect}</arg>
+<status status="PASS" starttime="20230328 16:48:30.884" endtime="20230328 16:48:33.621"/>
+</kw>
+<kw name="Speed Should Be" library="MorseDecoderLibrary">
+<arg>${expected_speed}</arg>
+<status status="PASS" starttime="20230328 16:48:33.621" endtime="20230328 16:48:33.623"/>
+</kw>
+<status status="PASS" starttime="20230328 16:48:30.883" endtime="20230328 16:48:33.623"/>
+</kw>
+<kw name="Morse Teardown" library="morse" type="TEARDOWN">
+<kw name="Set Auto Wpm Status" library="MorseDecoderLibrary">
+<arg>ON</arg>
+<status status="PASS" starttime="20230328 16:48:33.624" endtime="20230328 16:48:33.624"/>
+</kw>
+<kw name="Auto Wpm Status Should Be" library="MorseDecoderLibrary">
+<arg>ON</arg>
+<status status="PASS" starttime="20230328 16:48:33.624" endtime="20230328 16:48:33.627"/>
+</kw>
+<kw name="Set Immediate Status" library="MorseDecoderLibrary">
+<arg>ON</arg>
+<status status="PASS" starttime="20230328 16:48:33.627" endtime="20230328 16:48:33.627"/>
+</kw>
+<kw name="Immediate Status Should Be" library="MorseDecoderLibrary">
+<arg>ON</arg>
+<status status="PASS" starttime="20230328 16:48:33.627" endtime="20230328 16:48:33.630"/>
+</kw>
+<status status="PASS" starttime="20230328 16:48:33.623" endtime="20230328 16:48:33.630"/>
+</kw>
+<status status="PASS" starttime="20230328 16:48:30.872" endtime="20230328 16:48:33.631"/>
+</test>
+<test id="s1-t3" name="Send Morse longer text" line="17">
+<kw name="Morse Setup" library="morse" type="SETUP">
+<kw name="Set Auto Wpm Status" library="MorseDecoderLibrary">
+<arg>OFF</arg>
+<status status="PASS" starttime="20230328 16:48:33.633" endtime="20230328 16:48:33.637"/>
+</kw>
+<kw name="Auto Wpm Status Should Be" library="MorseDecoderLibrary">
+<arg>OFF</arg>
+<status status="PASS" starttime="20230328 16:48:33.637" endtime="20230328 16:48:33.640"/>
+</kw>
+<kw name="Set Immediate Status" library="MorseDecoderLibrary">
+<arg>OFF</arg>
+<status status="PASS" starttime="20230328 16:48:33.640" endtime="20230328 16:48:33.641"/>
+</kw>
+<kw name="Immediate Status Should Be" library="MorseDecoderLibrary">
+<arg>OFF</arg>
+<status status="PASS" starttime="20230328 16:48:33.641" endtime="20230328 16:48:33.644"/>
+</kw>
+<status status="PASS" starttime="20230328 16:48:33.633" endtime="20230328 16:48:33.644"/>
+</kw>
+<kw name="Send Morse" library="morse">
+<arg>${lorem}</arg>
+<arg>500</arg>
+<arg>500</arg>
+<kw name="Set Speed" library="MorseDecoderLibrary">
+<arg>${speed}</arg>
+<status status="PASS" starttime="20230328 16:48:33.645" endtime="20230328 16:48:33.645"/>
+</kw>
+<kw name="Send Text" library="MorseDecoderLibrary">
+<arg>${text_to_send}</arg>
+<status status="PASS" starttime="20230328 16:48:33.645" endtime="20230328 16:48:33.645"/>
+</kw>
+<kw name="Replace String Using Regexp" library="String">
+<var>${text_to_expect}</var>
+<arg>${text_to_send}</arg>
+<arg>[^a-zA-Z0-9 ]</arg>
+<arg>x</arg>
+<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230328 16:48:33.646" level="INFO">${text_to_expect} = Lorem Ipsum is simply dummy text of the printing and typesetting industryx</msg>
+<status status="PASS" starttime="20230328 16:48:33.645" endtime="20230328 16:48:33.646"/>
+</kw>
+<kw name="Convert To Upper Case" library="String">
+<var>${text_to_expect}</var>
+<arg>${text_to_expect}</arg>
+<doc>Converts string to upper case.</doc>
+<msg timestamp="20230328 16:48:33.646" level="INFO">${text_to_expect} = LOREM IPSUM IS SIMPLY DUMMY TEXT OF THE PRINTING AND TYPESETTING INDUSTRYX</msg>
+<status status="PASS" starttime="20230328 16:48:33.646" endtime="20230328 16:48:33.646"/>
+</kw>
+<kw name="Text Should Be" library="MorseDecoderLibrary">
+<arg>${text_to_expect}</arg>
+<status status="PASS" starttime="20230328 16:48:33.646" endtime="20230328 16:48:35.027"/>
+</kw>
+<kw name="Speed Should Be" library="MorseDecoderLibrary">
+<arg>${expected_speed}</arg>
+<status status="PASS" starttime="20230328 16:48:35.027" endtime="20230328 16:48:35.029"/>
+</kw>
+<status status="PASS" starttime="20230328 16:48:33.644" endtime="20230328 16:48:35.029"/>
+</kw>
+<kw name="Morse Teardown" library="morse" type="TEARDOWN">
+<kw name="Set Auto Wpm Status" library="MorseDecoderLibrary">
+<arg>ON</arg>
+<status status="PASS" starttime="20230328 16:48:35.030" endtime="20230328 16:48:35.030"/>
+</kw>
+<kw name="Auto Wpm Status Should Be" library="MorseDecoderLibrary">
+<arg>ON</arg>
+<status status="PASS" starttime="20230328 16:48:35.030" endtime="20230328 16:48:35.032"/>
+</kw>
+<kw name="Set Immediate Status" library="MorseDecoderLibrary">
+<arg>ON</arg>
+<status status="PASS" starttime="20230328 16:48:35.033" endtime="20230328 16:48:35.033"/>
+</kw>
+<kw name="Immediate Status Should Be" library="MorseDecoderLibrary">
+<arg>ON</arg>
+<status status="PASS" starttime="20230328 16:48:35.033" endtime="20230328 16:48:35.036"/>
+</kw>
+<status status="PASS" starttime="20230328 16:48:35.029" endtime="20230328 16:48:35.036"/>
+</kw>
+<status status="PASS" starttime="20230328 16:48:33.632" endtime="20230328 16:48:35.036"/>
+</test>
+<doc>Example of morse transmitter test
+</doc>
+<status status="PASS" starttime="20230328 16:48:28.372" endtime="20230328 16:48:35.038"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="0" skip="0" id="s1" name="Morse">Morse</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
